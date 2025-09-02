@@ -306,11 +306,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateParallax() {
         const scrolled = window.pageYOffset;
         const parallaxElements = document.querySelectorAll('.floating-icons i');
-        
-        parallaxElements.forEach((element, index) => {
-            const speed = 0.5 + (index * 0.1);
-            element.style.transform = `translateY(${scrolled * speed}px)`;
-        });
     }
 
      // Form input animations
