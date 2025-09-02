@@ -331,22 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(focusStyles);
 
-    // Typing animation for hero title
-    function typeWriter(element, text, speed = 100) {
-        let i = 0;
-        element.innerHTML = '';
-        
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-        
-        type();
-    }
-
     // Initialize typing animation after a delay
     setTimeout(() => {
         const heroTitle = document.querySelector('.hero-title');
