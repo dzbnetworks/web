@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             setTimeout(() => {
                 submitButton.innerHTML = '<i class="fas fa-check"></i> Assessment Sent!';
-                showNotification('Thank you! We\'ll get back to you within 1 hour.', 'success');
+                showNotification('Thank you! We\'ll get back to you within 1 day.', 'success');
                 contactForm.reset();
                 
                 setTimeout(() => {
