@@ -290,28 +290,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add ripple animation
-    const rippleStyles = document.createElement('style');
-    rippleStyles.textContent = `
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(rippleStyles);
-
-    // Parallax effect for hero section
-    function updateParallax() {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.floating-icons i');
-        
-        parallaxElements.forEach((element, index) => {
-            const speed = 0.5 + (index * 0.1);
-            element.style.transform = `translateY(${scrolled * speed}px)`;
+    // Service card hover effects
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
         });
-    }
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
 
-    window.addEventListener('scroll', updateParallax);
+    const aboutSection = document.querySelector('.about');
+    if (aboutSection) {
+        statsObserver.observe(aboutSection);
+    }
 });
