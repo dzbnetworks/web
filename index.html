@@ -10,6 +10,7 @@
     <!-- Icons -->
     <link rel="icon" href="favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon-apple.png">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -251,6 +252,8 @@
         </div>
     </section>
 
+    <div class="cf-turnstile" data-sitekey="<0x4AAAAAABx3zbCjd_ZR-hXj>"></div>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -282,7 +285,12 @@
                         </div>
                         <h3>Get In Touch</h3>
                     </div>
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="https://submit-form.com/0iKvM50sT">
+                        <input
+                            type="hidden"
+                            name="_redirect"
+                            value="https://dzbnetworks.com"
+                        />
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="fullName">Full Name *</label>
