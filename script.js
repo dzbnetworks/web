@@ -380,5 +380,5 @@ document.addEventListener('DOMContentLoaded', function() {
     if (aboutSection) {
         statsObserver.observe(aboutSection);
     }
-};
+});
 
