@@ -290,6 +290,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Add ripple animation
+    const rippleStyles = document.createElement('style');
+    rippleStyles.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(rippleStyles);
+
+    // Parallax effect for hero section
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.floating-icons i');
+        
+        parallaxElements.forEach((element, index) => {
+            const speed = 0.5 + (index * 0.1);
+            element.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    }
+
+    window.addEventListener('scroll', updateParallax);
+
+    // Form input animations
+    const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.parentElement.classList.remove('focused');
+            }
+        });
+        
+        // Check if input has value on load
+        if (input.value) {
+            input.parentElement.classList.add('focused');
+        }
+    });
+
+    // Add focus styles
+    const focusStyles = document.createElement('style');
+    focusStyles.textContent = `
+        .form-group.focused label {
+            color: #00d4ff;
+            transform: translateY(-2px);
+        }
+    `;
+    document.head.appendChild(focusStyles);
+
     // Service card hover effects
     const serviceCards = document.querySelectorAll('.service-card');
     serviceCards.forEach(card => {
@@ -301,6 +355,39 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
+
+    // Counter animation for stats
+    function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        
+        function updateCounter() {
+            start += increment;
+            if (start < target) {
+                element.textContent = Math.floor(start) + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                requestAnimationFrame(updateCounter);
+            } else {
+                element.textContent = target + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+            }
+        }
+        
+        updateCounter();
+    }
+
+    // Trigger counter animations when stats section is visible
+    const statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const text = stat.textContent;
+                    const number = parseInt(text.replace(/[^0-9]/g, ''));
+                    animateCounter(stat, number);
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
 
     const aboutSection = document.querySelector('.about');
     if (aboutSection) {
