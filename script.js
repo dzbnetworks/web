@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(rippleStyles);
 
     // Parallax effect for hero section
-/    function updateParallax() {
+    function updateParallax() {
         const scrolled = window.pageYOffset;
         const parallaxElements = document.querySelectorAll('.floating-icons i');
         
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', updateParallax);
-/
+
     // Form input animations
     const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
     formInputs.forEach(input => {
