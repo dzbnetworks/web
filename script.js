@@ -331,15 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(focusStyles);
 
-    // Initialize typing animation after a delay
-    setTimeout(() => {
-        const heroTitle = document.querySelector('.hero-title');
-        if (heroTitle) {
-            const originalText = heroTitle.innerHTML;
-            typeWriter(heroTitle, originalText.replace(/<[^>]*>/g, ''), 50);
-        }
-    }, 1000);
-
     // Service card hover effects
     const serviceCards = document.querySelectorAll('.service-card');
     serviceCards.forEach(card => {
