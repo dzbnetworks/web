@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Counter animation for stats
-    function animateCounter(element, target, duration = 2000) {
+/*    function animateCounter(element, target, duration = 2000) {
         let start = 0;
         const increment = target / (duration / 16);
         
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         updateCounter();
     }
-
+*/
     // Trigger counter animations when stats section is visible
     const statsObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
