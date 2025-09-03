@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         updateCounter();
     }
-*/
+
     // Trigger counter animations when stats section is visible
     const statsObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
@@ -393,4 +393,5 @@ document.addEventListener('DOMContentLoaded', function() {
     if (aboutSection) {
         statsObserver.observe(aboutSection);
     }
+*/
 });
